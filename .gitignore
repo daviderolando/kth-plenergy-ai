@@ -19,6 +19,9 @@
 *.synctex.gz
 *.toc
 
+# Generated from the KTH template by scripts/make_reference_pptx.py
+resources/kth_reference.pptx
+
 # ---------------------------------------------------------------
 # Python and Jupyter (managed by uv; keep uv.lock and .python-version)
 # ---------------------------------------------------------------
@@ -30,6 +33,11 @@ __pycache__/
 .pytest_cache/
 .ruff_cache/
 .mypy_cache/
+
+# ---------------------------------------------------------------
+# Node (decktape for PDF export; keep package.json and package-lock.json)
+# ---------------------------------------------------------------
+node_modules/
 
 # ---------------------------------------------------------------
 # macOS
@@ -85,3 +93,5 @@ ehthumbs.db
 .env
 .env.*
 !.env.example
+
+/.quarto/

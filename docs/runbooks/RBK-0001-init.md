@@ -58,3 +58,11 @@ site/_freeze/
 site/.quarto/
 *_files/
 ```
+
+### npm
+
+```bash
+npm init -y
+PUPPETEER_SKIP_DOWNLOAD=true npm install --save-dev decktape
+npx decktape reveal --size 960x540 --chrome-path "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" _site/site/slides/wp3-kickoff.html _site/site/slides/wp3-kickoff.pdf
+```

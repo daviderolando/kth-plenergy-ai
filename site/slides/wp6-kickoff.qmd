@@ -1,6 +1,5 @@
 ---
 title: "WP6: Use Case Validation and Performance Assessment"
-subtitle: "In the last 21 months we show, with evidence, that Plenergy.AI works at TRL 5 in four countries."
 author: "Davide Rolando, KTH"
 date: "1 December 2026"
 date-format: "D MMMM YYYY"
@@ -25,10 +24,47 @@ format:
       data-state: title-dark
 ---
 
+## WP6 overview
+
+::: {.lead}
+WP6 tests Plenergy.AI in the pilots and shows, with evidence, whether it works at TRL 5.
+:::
+
+::: {.flow .ovw}
+::: {.node}
+<b>Where we start</b>A working platform from WP4 and WP5: alpha at M24, beta at M30.
+:::
+<div class="arrow"></div>
+::: {.node .hot}
+<b>What WP6 does</b>Plans and runs the pilots in four countries, and measures them against the KPIs from WP3.
+:::
+<div class="arrow"></div>
+::: {.node}
+<b>What comes out</b>Evidence for the four project objectives, in the reports D6.1 to D6.4.
+:::
+:::
+
+::: {.facts}
+::: {.fact}
+<b>M16 to M36</b>the last 21 months
+:::
+::: {.fact}
+<b>8 partners</b>53.1 person-months
+:::
+::: {.fact}
+<b>KTH leads</b>with UNICA and AIT as task leaders
+:::
+:::
+
+::: {.notes}
+Keep this short, about two minutes. The next slides go into each part.
+WP6 depends on what WP3, WP4 and WP5 deliver, and it has the least time of all: the beta arrives at M30 and the reports are due at M36.
+:::
+
 ## What we must prove
 
 ::: {.lead}
-The KPIs were presented yesterday. Each one needs a kind of evidence.
+Each KPI needs a kind of evidence.
 :::
 
 | Objective | Evidence we collect | Task |
@@ -40,7 +76,7 @@ The KPIs were presented yesterday. Each one needs a kind of evidence.
 
 ::: {.notes}
 Timing for the whole session (40 minutes, 10:45 to 11:25): about 22 minutes of slides, 10 minutes of discussion, 8 minutes of buffer. The cross-WP alignment follows at 11:25 and the day ends at 12:00.
-Start by naming what carries over from yesterday: the KPI framework in WP3, the pilot contacts, the data inventory dates. Update this note with the decisions taken on day 1.
+Start by naming what carries over from WP3: the KPI framework, the pilot contacts, the data inventory dates. Update this note with the decisions taken on day 1.
 Key sentence: WP6 produces the evidence for all four objectives.
 Likely question: who decides if a target is met? A partner who did not run the pilot reviews the results, and the objective audit at M36 closes it.
 :::
@@ -120,7 +156,7 @@ Photos can replace the text columns later if we find ones with clear rights.
 ## Timeline and the tight window
 
 ::: {.lead}
-WP5 delivers the beta at M30, as shown before the break.
+WP5 delivers the beta at M30.
 :::
 
 ```{=html}
@@ -313,7 +349,7 @@ This table goes straight into the alignment session at 11:25.
 | WP3 | KPI definitions, baselines, shadow-mode protocol (D3.2) | M09 |
 | WP4 | Trust metrics and guardrail logic (D4.3) | M22 |
 | WP5 | Alpha for the dry run, then the beta with all three toolboxes and the audit logger | M24, M30 |
-| WP5 | A fix cycle during the pilots, with a freeze date before final measurements | M30 to M34 |
+| WP5 | A fix cycle during the pilots, with a cut-off date for fixes before the final measurements | M30 to M34 |
 | WP1 and WP2 | Data access agreements, ethics support, reporting dates | Before M22 |
 
 ::: {.notes}
@@ -393,7 +429,7 @@ What do you need from WP6, and by when?
 | Evaluation lead | One person at KTH | KPI data sheets, analysis, cross-case evaluation |
 | Reviewers | A partner who did not run the pilot | Independent check of the results |
 
-Meetings: monthly WP6 call from M16, fortnightly from M26, a pilot readiness review before M30. Each pilot protocol is approved before data collection starts. Problems found in the beta go to WP5 with a severity, and a fix freeze date comes before the final measurements.
+Meetings: monthly WP6 call from M16, fortnightly from M26, a pilot readiness review before M30. Each pilot protocol is approved before data collection starts. Problems found in the beta go to WP5 with a severity, and a cut-off date for fixes comes before the final measurements.
 
 ## Backup: risks for WP6 {.smaller}
 

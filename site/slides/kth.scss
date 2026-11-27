@@ -39,7 +39,7 @@ $presentation-heading-font: "Figtree", "Helvetica Neue", Arial, sans-serif;
   line-height: 1.1;
   color: $kth-navy;
   margin: 0;
-  padding-top: 84px;
+  padding-top: 98px;
   height: 52px;
   box-sizing: content-box;
   white-space: nowrap;
@@ -47,7 +47,7 @@ $presentation-heading-font: "Figtree", "Helvetica Neue", Arial, sans-serif;
 
 // Space under the title, matching the template (content starts about 143 px down)
 .reveal .slides section h2 + * {
-  margin-top: 34px;
+  margin-top: 26px;
 }
 
 .reveal .slides section p,
@@ -104,12 +104,12 @@ $presentation-heading-font: "Figtree", "Helvetica Neue", Arial, sans-serif;
 // KTH logo, top left, from the `logo:` option
 .reveal .slide-logo {
   position: fixed !important;
-  top: 14px !important;
-  left: 18px !important;
+  top: 24px !important;
+  left: 22px !important;
   bottom: auto !important;
   right: auto !important;
-  height: 62px !important;
-  max-height: 62px !important;
+  height: 46px !important;
+  max-height: 46px !important;
   width: auto !important;
 }
 
@@ -121,8 +121,8 @@ $presentation-heading-font: "Figtree", "Helvetica Neue", Arial, sans-serif;
 }
 
 .reveal .slides section#title-slide {
-  text-align: left;
-  padding-top: 230px;
+  text-align: center;
+  padding-top: 236px;
 }
 
 .reveal.has-dark-background .slide-logo {
@@ -142,8 +142,10 @@ body.title-dark .reveal .slide-logo {
   font-size: 40px;
   font-weight: 700;
   line-height: 1.1;
-  margin: 0 0 14px 0;
+  margin: 0 0 40px 0;
   max-width: 780px;
+  margin-left: auto;
+  margin-right: auto;
   text-transform: none;
 }
 
@@ -157,27 +159,32 @@ body.title-dark .reveal .slide-logo {
 
 .reveal .slides section#title-slide .quarto-title-authors {
   display: block;
-  text-align: left;
+  text-align: center;
   margin: 0;
 }
 
 .reveal .slides section#title-slide .quarto-title-author {
   display: block;
-  text-align: left;
+  text-align: center;
 }
 
 .reveal .slides section#title-slide .quarto-title-author-name {
   color: #ffffff;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
-  margin: 0;
+  margin: 0 0 6px 0;
+}
+
+.reveal .slides section#title-slide .date {
+  margin-top: 30px;
+  font-size: 18px;
 }
 
 .reveal .slides section#title-slide .quarto-title-affiliation {
   color: #9fb6dd;
   font-size: 18px;
   margin: 0;
-  text-align: left;
+  text-align: center;
 }
 
 // No footer on dark slides
@@ -661,4 +668,110 @@ svg.tl .gt.f {
 
 .cols.four .col h3 {
   font-size: 21px;
+}
+
+
+// WP3 overview: three boxes plus a row of facts
+.flow.ovw {
+  margin-top: 8px;
+}
+
+.flow.ovw .node {
+  font-size: 18px;
+  padding: 14px 16px 16px;
+}
+
+.flow.ovw .node b {
+  font-size: 21px;
+  margin-bottom: 6px;
+}
+
+.flow.ovw .arrow {
+  flex: 0 0 44px;
+}
+
+.facts {
+  display: flex;
+  gap: 0;
+  margin-top: 22px;
+  border-top: 2px solid $kth-pale;
+}
+
+.facts .fact {
+  flex: 1;
+  padding: 12px 20px 0 0;
+  font-size: 15px;
+  line-height: 1.3;
+  color: $kth-grey;
+}
+
+.facts .fact b {
+  display: block;
+  font-size: 24px;
+  color: $kth-navy;
+  margin-bottom: 2px;
+}
+
+// Footnotes at the bottom of a slide
+.reveal .fn {
+  margin-top: 26px;
+  font-size: 13px;
+  line-height: 1.4;
+  color: $kth-grey;
+  border-top: 1px solid $kth-pale;
+  padding-top: 8px;
+}
+
+.reveal .fn sup,
+.reveal .col sup {
+  font-size: 0.75em;
+  color: $kth-blue;
+  font-weight: 700;
+}
+
+// Horizontal bars: one row per label and value
+.bars {
+  margin-top: 4px;
+}
+
+.bars .bar {
+  display: grid;
+  grid-template-columns: 300px 1fr 46px;
+  align-items: center;
+  gap: 16px;
+  margin: 9px 0;
+  font-size: 18px;
+}
+
+.bars .bar p {
+  display: contents;
+}
+
+.bars .track {
+  display: block;
+  height: 22px;
+  background: $kth-pale;
+  border-radius: 3px;
+}
+
+.bars .track i {
+  display: block;
+  height: 100%;
+  background: $kth-light;
+  border-radius: 3px;
+}
+
+.bars .bar.hot .track i {
+  background: $kth-navy;
+}
+
+.bars .bar.hot .lbl {
+  font-weight: 700;
+  color: $kth-navy;
+}
+
+.bars .val {
+  font-weight: 700;
+  color: $kth-navy;
+  text-align: right;
 }

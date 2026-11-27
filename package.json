@@ -1,0 +1,27 @@
+{
+  "name": "kth-plenergy-ai",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daviderolando/kth-plenergy-ai.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/daviderolando/kth-plenergy-ai/issues"
+  },
+  "homepage": "https://github.com/daviderolando/kth-plenergy-ai#readme",
+  "devDependencies": {
+    "decktape": "^3.17.0"
+  }
+}

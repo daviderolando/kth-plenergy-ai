@@ -1,0 +1,225 @@
+---
+title: "ElectriCITY Innovation in Plenergy.AI"
+author: "Davide Rolando, KTH"
+date: "30 November 2026"
+date-format: "D MMMM YYYY"
+institute: "Plenergy.AI kickoff meeting, Vienna"
+engine: markdown
+format:
+  revealjs:
+    theme: [default, kth.scss]
+    width: 960
+    height: 540
+    margin: 0
+    center: false
+    transition: none
+    slide-number: true
+    show-slide-number: all
+    hash: true
+    controls: true
+    embed-resources: true
+    logo: ../../resources/kth_logo.png
+    title-slide-attributes:
+      data-background-color: "#000061"
+      data-state: title-dark
+---
+
+## EIN overview
+
+::: {.lead}
+EIN brings the people and the place for the Swedish pilot.
+:::
+
+::: {.flow .ovw}
+::: {.node}
+<b>Who they are</b>A Swedish non-profit that runs the ElectriCITY innovation ecosystem in Hammarby Sjöstad.
+:::
+<div class="arrow"></div>
+::: {.node .hot}
+<b>What they do here</b>Host the Swedish pilot, run the Living Lab, and involve citizens and operators in the design.
+:::
+<div class="arrow"></div>
+::: {.node}
+<b>What the project gets</b>A real operating environment, and people who will use the tools.
+:::
+:::
+
+::: {.facts}
+::: {.fact}
+<b>24.0 person-months</b>in total, over 36 months
+:::
+::: {.fact}
+<b>12.0 in WP6</b>the largest effort of any partner there
+:::
+::: {.fact}
+<b>2 002 182 SEK</b>national funding, 100%
+:::
+:::
+
+::: {.notes}
+Source: the international proposal, partner table and section 3.2, and the Swedish proposal for the funding.
+In the proposal EIN is named ElectriCITY Innovation, and in a few places Electricity Innovation. It is the same partner.
+The facts row: WP6 is 12.0 of 24.0 person-months. In WP6, EIN has more effort than KTH (10.0) and IMT (10.0).
+:::
+
+## Where EIN works
+
+::: {.lead}
+Half of EIN's effort is in WP6, most of the rest in WP3 (person-months).
+:::
+
+::: {.bars}
+::: {.bar}
+<span class="lbl">WP1 Project management</span><span class="track"><i style="width: 12.5%"></i></span><span class="val">1.5</span>
+:::
+::: {.bar}
+<span class="lbl">WP2 Reporting and knowledge</span><span class="track"><i style="width: 12.5%"></i></span><span class="val">1.5</span>
+:::
+::: {.bar .hot}
+<span class="lbl">WP3 Requirements and architecture</span><span class="track"><i style="width: 58.3%"></i></span><span class="val">7.0</span>
+:::
+::: {.bar}
+<span class="lbl">WP4 Theory and methods</span><span class="track"><i style="width: 0%"></i></span><span class="val">0.0</span>
+:::
+::: {.bar}
+<span class="lbl">WP5 Platform and toolboxes</span><span class="track"><i style="width: 16.7%"></i></span><span class="val">2.0</span>
+:::
+::: {.bar .hot}
+<span class="lbl">WP6 Validation and assessment</span><span class="track"><i style="width: 100%"></i></span><span class="val">12.0</span>
+:::
+:::
+
+::: {.notes}
+The bars show how the 24.0 person-months split across work packages. WP3 and WP6 are highlighted because that is where EIN's role is described in detail.
+WP4 has no EIN effort, which fits the split: EIN works on the user side, not on the models.
+:::
+
+## The Swedish pilot
+
+::: {.lead}
+EIN hosts the pilot for the operator decision-support use case (EDCR), in Hammarby Sjöstad.
+:::
+
+::: {.steps}
+::: {.step}
+<b>Real data</b><br>Community and building data from the district, with ProptechOS supplying building streams.
+:::
+::: {.step}
+<b>Simulated grid limits</b><br>Informed by the grid operator (DSO), since the project does not control the real grid.
+:::
+::: {.step}
+<b>Shadow mode</b><br>The assistant suggests, for example for load peaks or flexibility activation. Operators decide.
+:::
+:::
+
+::: {.notes}
+The proposal describes this pilot in more detail than the others. Task T6.2, led by KTH, with EIN, ProptechOS, TRI and IMT.
+Key sentence: nothing in the pilot controls a physical asset.
+Likely question: who are the operators? Open. See the last slide.
+:::
+
+## EIN in WP3: the user side of the requirements
+
+::: {.cols}
+::: {.col .ecp}
+<span class="tag">T3.1 Blueprints</span>
+
+Stakeholders and requirements for the Swedish pilot.
+
+Co-design workshops with the Living Lab method, including non-expert users.
+:::
+::: {.col .edcr}
+<span class="tag">T3.2 KPIs and validation</span>
+
+Review of the T3.1 results with stakeholders.
+
+Input to the KPIs and the impact planning.
+:::
+::: {.col .esla}
+<span class="tag">Effort</span>
+
+7.0 person-months in M01 to M09, the second largest after KTH.
+
+Stakeholders for the pilot, proposed by M02.
+:::
+:::
+
+::: {.notes}
+Details: the international proposal (T3.1, T3.2) and the WP3 guide. The split of tasks in this slide is a summary, the workshops and the stakeholder map are in T3.1. "Stakeholders by M02" is the proposal in our WP3 deck, still to be agreed.
+EIN's input is what keeps the requirements about real use, not about what is technically convenient.
+:::
+
+## EIN in WP6: running the pilot
+
+::: {.cols}
+::: {.col .edcr}
+<span class="tag">Before the pilot</span>
+
+Name a pilot coordinator.
+
+Arrange operators and users, and agree a schedule early.
+
+Help measure today's baselines.
+:::
+::: {.col .edcr}
+<span class="tag">During the pilot</span>
+
+Host sessions with operators in shadow mode.
+
+Replay past events with them.
+
+Collect feedback and survey answers.
+:::
+::: {.col .edcr}
+<span class="tag">After the pilot</span>
+
+Take part in the analysis.
+
+Help assess the impact for the Swedish case.
+:::
+:::
+
+::: {.notes}
+Biggest risk from the WP6 risk list: operators have little time for shadow-mode sessions. The mitigation is to agree a schedule with EIN and the DSO early, replay historical events and keep the sessions short.
+The pilot period is short, about four months between the beta at M30 and the analysis phase from M34.
+:::
+
+## Beyond the pilot
+
+::: {.lead}
+EIN also opens doors in Sweden.
+:::
+
+- **Access.** Direct contact with Swedish energy communities and with DSO innovation programmes.
+- **Community playbook.** EIN organises a workshop for Swedish energy communities and DSOs.
+- **After the project.** EIN drives market validation in Sweden, as part of the exploitation plan.
+
+::: {.notes}
+From the impact and dissemination sections of the proposal. The workshop is one of the national dissemination events, one per pilot country.
+No dates are given in the proposal for the workshop.
+:::
+
+## What we need next
+
+| What | Who | By |
+|:-----------------------|:----------------|:-----|
+| A named contact for WP3 and for the pilot | EIN | This week |
+| Stakeholders for the Swedish pilot | EIN, KTH | M02 |
+| Operators and the DSO for shadow-mode sessions | EIN | M06 |
+| Data sharing between EIN, ProptechOS and KTH | EIN, ProptechOS, KTH | Before M22 |
+| Date for the first co-design workshop | EIN, KTH | 4 weeks |
+
+::: {.notes}
+All dates are proposals, taken from the WP3 and WP6 decks, and need agreeing with EIN.
+Data sharing and operator access are listed as open issues in the WP6 guide.
+:::
+
+## Discussion {.dark background-color="#000061"}
+
+::: {.qlist}
+Who are the operators and users in the pilot?
+
+Which data from the district can we use, and under which agreement?
+
+When can we hold the first workshop?
+:::
