@@ -1,0 +1,87 @@
+# ---------------------------------------------------------------
+# Quarto
+# ---------------------------------------------------------------
+# Render output (project output-dir is _site) and freeze cache
+**/_site/
+**/_freeze/
+**/.quarto/
+# Intermediate files
+**/*.quarto_ipynb
+*_files/
+*_cache/
+.jupyter_cache/
+# PDF and LaTeX intermediates when rendering with --to pdf
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+
+# ---------------------------------------------------------------
+# Python and Jupyter (managed by uv; keep uv.lock and .python-version)
+# ---------------------------------------------------------------
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# ---------------------------------------------------------------
+# macOS
+# ---------------------------------------------------------------
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.apdisk
+.com.apple.timemachine.donotpresent
+Icon?
+
+# ---------------------------------------------------------------
+# Office temporary and lock files (Word, Excel, PowerPoint, LibreOffice)
+# ---------------------------------------------------------------
+# Owner/lock files created while a document is open
+~$*
+.~lock.*#
+# Temp, autorecovery and backup files
+~*.tmp
+*.tmp
+*.asd
+*.wbk
+*.xlk
+*.xar
+
+# ---------------------------------------------------------------
+# OneDrive and Windows sync leftovers (the project folder syncs via OneDrive)
+# ---------------------------------------------------------------
+desktop.ini
+Thumbs.db
+ehthumbs.db
+*.icloud
+
+# ---------------------------------------------------------------
+# Editors and tools
+# ---------------------------------------------------------------
+.vscode/
+.idea/
+*.swp
+*~
+.claude/settings.local.json
+
+# ---------------------------------------------------------------
+# Secrets
+# ---------------------------------------------------------------
+.env
+.env.*
+!.env.example

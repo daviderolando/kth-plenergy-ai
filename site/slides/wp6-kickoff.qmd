@@ -1,0 +1,410 @@
+---
+title: "WP6: Use Case Validation and Performance Assessment"
+subtitle: "In the last 21 months we show, with evidence, that Plenergy.AI works at TRL 5 in four countries."
+author: "Davide Rolando, KTH"
+date: "1 December 2026"
+date-format: "D MMMM YYYY"
+institute: "Plenergy.AI kickoff meeting, Vienna"
+engine: markdown
+format:
+  revealjs:
+    theme: [default, kth.scss]
+    width: 960
+    height: 540
+    margin: 0
+    center: false
+    transition: none
+    slide-number: true
+    show-slide-number: all
+    hash: true
+    controls: true
+    embed-resources: true
+    logo: ../../resources/kth_logo.png
+    title-slide-attributes:
+      data-background-color: "#000061"
+      data-state: title-dark
+---
+
+## What we must prove
+
+::: {.lead}
+The KPIs were presented yesterday. Each one needs a kind of evidence.
+:::
+
+| Objective | Evidence we collect | Task |
+|:-------|:-----------------------|:-------|
+| O1 Orchestration | The same service built manually and with agents, plus stress-test logs | T6.3, T6.4 |
+| O2 Federation | Query and mapping benchmarks across sites, onboarding time of a new source | T6.4, all pilots |
+| O3 Explainability | Audit-trail checks, operator surveys, agreement with expert logic | T6.2, T6.1, T6.4 |
+| O4 Demonstration | Planning time, hosting capacity and congestion estimates, independent review | T6.1, T6.2 |
+
+::: {.notes}
+Timing for the whole session (40 minutes, 10:45 to 11:25): about 22 minutes of slides, 10 minutes of discussion, 8 minutes of buffer. The cross-WP alignment follows at 11:25 and the day ends at 12:00.
+Start by naming what carries over from yesterday: the KPI framework in WP3, the pilot contacts, the data inventory dates. Update this note with the decisions taken on day 1.
+Key sentence: WP6 produces the evidence for all four objectives.
+Likely question: who decides if a target is met? A partner who did not run the pilot reviews the results, and the objective audit at M36 closes it.
+:::
+
+## What TRL 5 means here
+
+::: {.quad}
+::: {}
+<b>Relevant environment</b>
+Real data where we have it, simulated grid constraints, lab or simulated settings. Live grid control is TRL 6 and outside the project.
+:::
+::: {}
+<b>Shadow mode</b>
+Recommendations run beside human decisions. Nothing controls a physical asset.
+:::
+::: {}
+<b>One KPI framework</b>
+Every pilot uses the scorecard from D3.2, so results compare across use cases and countries.
+:::
+::: {}
+<b>Degraded mode</b>
+We test lost data, broken links and bad input on purpose.
+:::
+:::
+
+::: {.notes}
+Key sentence: validated at TRL 5 means it works in a relevant environment beside people, not that it runs the grid.
+Likely question: why not TRL 6? The proposal scopes the project to TRL 5 and says live demonstrations are out of scope.
+:::
+
+## Four pilots, four countries
+
+::: {.cols .four}
+::: {.col .ecp}
+<span class="tag">ECP</span>
+
+<h3>Italy</h3>
+
+UNICA and FLOSS with Sardinian energy communities.
+
+Live planning pilot.
+:::
+::: {.col .ecp}
+<span class="tag">ECP, ESLA</span>
+
+<h3>Austria</h3>
+
+AIT with Austrian energy communities.
+
+High-fidelity simulation and a service development environment.
+:::
+::: {.col .edcr}
+<span class="tag">EDCR</span>
+
+<h3>Sweden</h3>
+
+KTH, EIN and ProptechOS in Hammarby Sjöstad.
+
+Real data, simulated grid constraints, shadow mode.
+:::
+::: {.col .esla .open}
+<span class="tag">EDCR, ESLA</span>
+
+<h3>France</h3>
+
+TRI and IMT.
+
+Still to specify: environment, data, participants.
+:::
+:::
+
+::: {.notes}
+The dashed column is the open one. The proposal describes the Swedish EDCR pilot in detail and says little about the French sites, so we need TRI and IMT to fill that in.
+Photos can replace the text columns later if we find ones with clear rights.
+:::
+
+## Timeline and the tight window
+
+::: {.lead}
+WP5 delivers the beta at M30, as shown before the break.
+:::
+
+```{=html}
+<svg class="tl" viewBox="0 0 900 220" role="img" xmlns="http://www.w3.org/2000/svg">
+<text x="119.0" y="204" class="ax" text-anchor="middle">16</text>
+<line x1="100.0" y1="86" x2="100.0" y2="186" class="grid"/>
+<text x="157.1" y="204" class="ax" text-anchor="middle">17</text>
+<line x1="138.1" y1="86" x2="138.1" y2="186" class="grid"/>
+<text x="195.2" y="204" class="ax" text-anchor="middle">18</text>
+<line x1="176.2" y1="86" x2="176.2" y2="186" class="grid"/>
+<text x="233.3" y="204" class="ax" text-anchor="middle">19</text>
+<line x1="214.3" y1="86" x2="214.3" y2="186" class="grid"/>
+<text x="271.4" y="204" class="ax" text-anchor="middle">20</text>
+<line x1="252.4" y1="86" x2="252.4" y2="186" class="grid"/>
+<text x="309.5" y="204" class="ax" text-anchor="middle">21</text>
+<line x1="290.5" y1="86" x2="290.5" y2="186" class="grid"/>
+<text x="347.6" y="204" class="ax" text-anchor="middle">22</text>
+<line x1="328.6" y1="86" x2="328.6" y2="186" class="grid"/>
+<text x="385.7" y="204" class="ax" text-anchor="middle">23</text>
+<line x1="366.7" y1="86" x2="366.7" y2="186" class="grid"/>
+<text x="423.8" y="204" class="ax" text-anchor="middle">24</text>
+<line x1="404.8" y1="86" x2="404.8" y2="186" class="grid"/>
+<text x="461.9" y="204" class="ax" text-anchor="middle">25</text>
+<line x1="442.9" y1="86" x2="442.9" y2="186" class="grid"/>
+<text x="500.0" y="204" class="ax" text-anchor="middle">26</text>
+<line x1="481.0" y1="86" x2="481.0" y2="186" class="grid"/>
+<text x="538.1" y="204" class="ax" text-anchor="middle">27</text>
+<line x1="519.0" y1="86" x2="519.0" y2="186" class="grid"/>
+<text x="576.2" y="204" class="ax" text-anchor="middle">28</text>
+<line x1="557.1" y1="86" x2="557.1" y2="186" class="grid"/>
+<text x="614.3" y="204" class="ax" text-anchor="middle">29</text>
+<line x1="595.2" y1="86" x2="595.2" y2="186" class="grid"/>
+<text x="652.4" y="204" class="ax" text-anchor="middle">30</text>
+<line x1="633.3" y1="86" x2="633.3" y2="186" class="grid"/>
+<text x="690.5" y="204" class="ax" text-anchor="middle">31</text>
+<line x1="671.4" y1="86" x2="671.4" y2="186" class="grid"/>
+<text x="728.6" y="204" class="ax" text-anchor="middle">32</text>
+<line x1="709.5" y1="86" x2="709.5" y2="186" class="grid"/>
+<text x="766.7" y="204" class="ax" text-anchor="middle">33</text>
+<line x1="747.6" y1="86" x2="747.6" y2="186" class="grid"/>
+<text x="804.8" y="204" class="ax" text-anchor="middle">34</text>
+<line x1="785.7" y1="86" x2="785.7" y2="186" class="grid"/>
+<text x="842.9" y="204" class="ax" text-anchor="middle">35</text>
+<line x1="823.8" y1="86" x2="823.8" y2="186" class="grid"/>
+<text x="881.0" y="204" class="ax" text-anchor="middle">36</text>
+<line x1="861.9" y1="86" x2="861.9" y2="186" class="grid"/>
+<line x1="900.0" y1="86" x2="900.0" y2="186" class="grid"/>
+<text x="90" y="204" class="ax" text-anchor="end">Month</text>
+<text x="90" y="115.0" class="rl" text-anchor="end">Evaluation</text>
+<rect x="101.0" y="92" width="226.6" height="36" rx="3" class="seg a"/>
+<text x="214.3" y="115.0" class="st a" text-anchor="middle">Plans, baselines, ethics</text>
+<rect x="329.6" y="92" width="150.4" height="36" rx="3" class="seg a"/>
+<text x="404.8" y="115.0" class="st a" text-anchor="middle">Retrospective trials</text>
+<rect x="482.0" y="92" width="150.4" height="36" rx="3" class="seg b"/>
+<text x="557.1" y="115.0" class="st b" text-anchor="middle">Dry run, beta prep</text>
+<rect x="634.3" y="92" width="150.4" height="36" rx="3" class="seg p"/>
+<text x="709.5" y="115.0" class="st p" text-anchor="middle">Pilot operation</text>
+<rect x="786.7" y="92" width="112.3" height="36" rx="3" class="seg c"/>
+<text x="842.9" y="115.0" class="st c" text-anchor="middle">Analysis</text>
+<text x="90" y="159.0" class="rl" text-anchor="end">T6.4 tests</text>
+<rect x="482.0" y="136" width="150.4" height="36" rx="3" class="seg b"/>
+<text x="557.1" y="159.0" class="st b" text-anchor="middle">Test harness on alpha</text>
+<rect x="634.3" y="136" width="226.6" height="36" rx="3" class="seg p"/>
+<text x="747.6" y="159.0" class="st p" text-anchor="middle">Stress, fault and scale tests</text>
+<line x1="195.2" y1="24" x2="195.2" y2="186" class="gate n"/>
+<circle cx="195.2" cy="24" r="4" class="gd n"/>
+<text x="203.2" y="28" class="gt n" text-anchor="start">WS2 interim review</text>
+<line x1="271.4" y1="46" x2="271.4" y2="186" class="gate n"/>
+<circle cx="271.4" cy="46" r="4" class="gd n"/>
+<text x="279.4" y="50" class="gt n" text-anchor="start">Core platform draft</text>
+<line x1="423.8" y1="68" x2="423.8" y2="186" class="gate n"/>
+<circle cx="423.8" cy="68" r="4" class="gd n"/>
+<text x="431.8" y="72" class="gt n" text-anchor="start">Alpha demo</text>
+<line x1="500.0" y1="24" x2="500.0" y2="186" class="gate n"/>
+<circle cx="500.0" cy="24" r="4" class="gd n"/>
+<text x="508.0" y="28" class="gt n" text-anchor="start">Dry run (M7)</text>
+<line x1="652.4" y1="46" x2="652.4" y2="186" class="gate f"/>
+<circle cx="652.4" cy="46" r="4" class="gd f"/>
+<text x="660.4" y="50" class="gt f" text-anchor="start">Beta release (M8)</text>
+<line x1="728.6" y1="68" x2="728.6" y2="186" class="gate n"/>
+<circle cx="728.6" cy="68" r="4" class="gd n"/>
+<text x="736.6" y="72" class="gt n" text-anchor="start">WS3 impact review</text>
+<line x1="881.0" y1="24" x2="881.0" y2="186" class="gate f"/>
+<circle cx="881.0" cy="24" r="4" class="gd f"/>
+<text x="873.0" y="28" class="gt f" text-anchor="end">TRL 5 and objective audit</text>
+</svg>
+```
+
+::: {.callout}
+The beta arrives at M30 and the reports are due at M36. Whatever can be ready earlier has to be.
+:::
+
+::: {.notes}
+Key number: about four months of pilot operation between the beta at M30 and the analysis phase from M34.
+The alpha at M24 and the beta at M30 are the dates WP5 presented earlier this morning. If WP5 changed them, update this slide.
+The schedule inside the phases is a proposal. The proposal fixes WS2 at M18, the dry run at M26, the beta at M30, WS3 at M32 and the reports at M36.
+Likely question: can pilots start on the alpha? Yes for the dry run and the test harness. Real pilot operation needs the beta.
+:::
+
+## How each use case is evaluated
+
+::: {.cols}
+::: {.col .ecp}
+<span class="tag">ECP</span>
+
+Historical planning cases first, then planning with emerging communities. Compared with expert plans.
+
+Measures: planning time, accuracy, usability for non-experts, correct national rules.
+:::
+::: {.col .edcr}
+<span class="tag">EDCR</span>
+
+Replay of past events, live shadow mode, review sessions with operators. Compared with operator decisions.
+
+Measures: acceptance, agreement, transparency, time to decision, audit trail.
+:::
+::: {.col .esla}
+<span class="tag">ESLA</span>
+
+The same services built the conventional way and with the toolbox.
+
+Measures: person-hours, elapsed time, workflow errors, share of steps without a human.
+:::
+:::
+
+::: {.callout}
+T6.4 runs beside all three: load, fault injection, bad data, guardrail and oversight tests.
+:::
+
+::: {.notes}
+Each task leader writes the protocol for their pilot. KTH checks that it follows the D3.2 framework.
+Likely question: who recruits the users? The pilot hosts, with a mix of ages, backgrounds and genders. Usability data is sex-disaggregated, as the proposal promises.
+:::
+
+## From KPI to evidence
+
+::: {.flow}
+::: {.node}
+<b>KPI</b>defined in D3.2
+:::
+<div class="arrow"></div>
+::: {.node}
+<b>Data source</b>logs, surveys, simulations
+:::
+<div class="arrow"></div>
+::: {.node}
+<b>Measurement</b>method and date
+:::
+<div class="arrow"></div>
+::: {.node}
+<b>Owner</b>named person
+:::
+<div class="arrow"></div>
+::: {.node .hot}
+<b>Report</b>D6.1 to D6.4
+:::
+:::
+
+- Log automatically wherever possible.
+- Surveys use one questionnaire, in the local language.
+- A partner who did not run a pilot reviews its results.
+
+::: {.notes}
+One data sheet per pilot, prefilled from D3.2. This is how WP3 and WP6 connect.
+:::
+
+## Ready before M30
+
+| What | Owner | When |
+|:-----------------------|:-------------|:-------|
+| Baselines measured before the AI is used | Pilot hosts | From M16 |
+| Data access agreed for each pilot | Pilot hosts | Before M22 |
+| Ethics and consent documents | Pilot hosts, KTH | M18 to M22 |
+| A named pilot coordinator | Each pilot host | Now |
+| Test harness for robustness tests | KTH, UNICA, IMT | M26 |
+
+::: {.notes}
+Key sentence: if we do this early, the four months after the beta go to measuring, not to preparing.
+Dates are proposals. Baselines matter most: without them we cannot show an improvement.
+:::
+
+## What WP6 needs from other WPs
+
+::: {.lead}
+This table goes straight into the alignment session at 11:25.
+:::
+
+| From | What | When |
+|:---|:-------------------------------|:-----|
+| WP3 | KPI definitions, baselines, shadow-mode protocol (D3.2) | M09 |
+| WP4 | Trust metrics and guardrail logic (D4.3) | M22 |
+| WP5 | Alpha for the dry run, then the beta with all three toolboxes and the audit logger | M24, M30 |
+| WP5 | A fix cycle during the pilots, with a freeze date before final measurements | M30 to M34 |
+| WP1 and WP2 | Data access agreements, ethics support, reporting dates | Before M22 |
+
+::: {.notes}
+Dates come from the proposal and from the WP4 and WP5 presentations this morning. Check them against what was said.
+Likely question: what does WP6 give back? Fast, structured feedback on the beta, and the evidence for the WP2 reports at M24 and M36.
+:::
+
+## What we need from you now
+
+| What | Who | By |
+|:-----------------------|:----------------|:-----|
+| A named pilot coordinator per country | AIT, UNICA, KTH with EIN, TRI with IMT | 4 weeks |
+| The French pilots: environment, data, participants | TRI, IMT | M06 |
+| Austrian communities and datasets for ECP and ESLA | AIT | M06 |
+| Baselines that exist today: planning, DSO connection study, service development | AIT, UNICA, EIN | M06 |
+| Ethics and data protection rules in your country | Pilot hosts | M06 |
+
+::: {.notes}
+Nothing here is urgent for the pilots themselves. It decides whether the plan for M16 is realistic.
+Write the answers into the shared asks table during the discussion, phrased as action items for the 11:45 wrap-up.
+:::
+
+## Discussion {.dark background-color="#000061"}
+
+::: {.qlist}
+What are the French EDCR and ESLA pilots, concretely?
+
+Which Austrian communities and datasets do we use?
+
+Can pilot hosts get a beta preview before M30?
+
+What do you need from WP6, and by when?
+:::
+
+## Backup: effort by partner {.smaller}
+
+| Partner | PMs | Main contribution to WP6 |
+|:--|--:|:--|
+| EIN | 12.0 | Swedish pilot host, Living Lab, stakeholders and operators in Hammarby Sjöstad |
+| KTH | 10.0 | Leads WP6, T6.2 and T6.4, KPI assessment, cross-case evaluation |
+| IMT | 10.0 | Explainability and trust evaluation, support for EDCR and ESLA in France |
+| AIT | 7.6 | Leads T6.3, ECP and ESLA in Austria |
+| TRI | 5.0 | AI Act compliance checks, guardrail testing, EDCR and ESLA in France |
+| UNICA | 3.0 | Leads T6.1, ECP pilot in Italy, robustness testing |
+| FLOSS | 3.0 | Platform support during ECP validation, fixes and releases |
+| ProptechOS (IDUN) | 2.5 | Building data integration and platform support for the Swedish pilot |
+
+## Backup: evaluation design by use case {.smaller}
+
+| | ECP | EDCR | ESLA |
+|:--|:--|:--|:--|
+| Cases and data | Historical cases per country, then emerging communities in Italy and simulated ones in Austria | Building and community data via ProptechOS, grid constraints informed by the DSO, historical events for replay | One or two reference services, such as a demand forecast and a demand-response algorithm |
+| Baseline | Time and cost of conventional planning | Operator decisions in past events | Conventional development process, measured first |
+| Comparison | AI plan against expert plan | AI recommendation against operator decision, guardrail result recorded | Same service, automated against conventional |
+| Users | Community managers and members, including non-experts | Operators and DSO staff | Developers and service operators |
+| Indicators | Planning time, accuracy, task completion, understanding of explanations, correct national rules | Acceptance, agreement, trust, time to decision, guardrail interventions, audit trail completeness | Person-hours, elapsed time, errors and reruns, autonomy rate, compliance trail |
+| Report | D6.1 | D6.2 | D6.3 |
+
+## Backup: robustness test catalogue (T6.4) {.smaller}
+
+| Test family | Examples | Metric |
+|:--|:--|:--|
+| Load | 10, 50 and 100 virtual communities, 100 or more concurrent agents | Response time, throughput, error rate |
+| Federation latency | Cross-site SPARQL queries, with and without edge caching | Share of queries under 2 s (target 90%), mapping under 500 ms |
+| Fault injection | Data source down, stale data, link loss, agent crash, failed grid simulation | Recovery time, fallback behaviour |
+| Data quality | Missing values, outliers, wrong units, conflicting sources | Detection rate, false alarms |
+| Guardrail and oversight | Recommendations that break voltage or capacity limits, low-confidence cases, manual override | Violations rejected (100%), escalation rate, guardrail latency under 100 ms |
+| Security | Role-based access checks, unauthorised tool use | Policy violations blocked |
+
+## Backup: roles and meetings {.smaller}
+
+| Role | Who | Responsibility |
+|:--|:--|:--|
+| WP leader | KTH | Plan, coordination, consistent evaluation, final reports |
+| Task leaders | UNICA (T6.1), KTH (T6.2, T6.4), AIT (T6.3) | Protocols, execution, task reports |
+| Pilot coordinators | One named person per pilot | Site access, participants, local logistics, data agreements |
+| Evaluation lead | One person at KTH | KPI data sheets, analysis, cross-case evaluation |
+| Reviewers | A partner who did not run the pilot | Independent check of the results |
+
+Meetings: monthly WP6 call from M16, fortnightly from M26, a pilot readiness review before M30. Each pilot protocol is approved before data collection starts. Problems found in the beta go to WP5 with a severity, and a fix freeze date comes before the final measurements.
+
+## Backup: risks for WP6 {.smaller}
+
+| Risk | Mitigation |
+|:--|:--|
+| Unstable access to data | Data access agreements early, readiness check at M26, synthetic data as fallback |
+| Pilot users lose interest | Community managers at each site, clear benefits, gamified feedback in the toolboxes |
+| Platform does not scale | Simulated load tests in T6.4, modular microservices |
+| Regulation changes | Monitoring in T2.2, reconfigurable regulatory guardrails |
+| Explanations too technical | Trust-Score tracking in WP6, iterative UI testing in WP5 |
+| The beta arrives late and shortens the pilot period | Alpha demos at M24, dry run at M26, protocols and tooling ready before M30 |
+| Operators have little time for shadow-mode sessions | Agree a schedule with EIN and the DSO early, replay historical events, short sessions |
+| No baselines, so no improvement can be shown | Measure baselines from M16 |
+| Ethics and privacy approvals take long | Prepare protocols at M18 to M22, check national requirements |

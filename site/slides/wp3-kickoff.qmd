@@ -1,0 +1,494 @@
+---
+title: "WP3: Requirements and Architecture Design"
+subtitle: "A community manager asks whether a PV and storage plan pays off. WP3 decides what the assistant must answer, how we check it, and where it runs."
+author: "Davide Rolando, KTH"
+date: "30 November 2026"
+date-format: "D MMMM YYYY"
+institute: "Plenergy.AI kickoff meeting, Vienna"
+engine: markdown
+format:
+  revealjs:
+    theme: [default, kth.scss]
+    width: 960
+    height: 540
+    margin: 0
+    center: false
+    transition: none
+    slide-number: true
+    show-slide-number: all
+    hash: true
+    controls: true
+    embed-resources: true
+    logo: ../../resources/kth_logo.png
+    title-slide-attributes:
+      data-background-color: "#000061"
+      data-state: title-dark
+---
+
+## Why WP3 comes first
+
+::: {.lead}
+WP4, WP5 and WP6 all build on what WP3 freezes at M09.
+:::
+
+::: {.deps}
+::: {.out}
+<b>D3.1</b> Use case blueprints
+:::
+<div class="link"></div>
+::: {.to}
+<b>WP4</b> models and methods<br><b>WP5</b> data layer and toolboxes
+:::
+::: {.out}
+<b>D3.2</b> Validation and impact framework
+:::
+<div class="link"></div>
+::: {.to}
+<b>WP6</b> what gets measured, and how
+:::
+::: {.out}
+<b>D3.3</b> Architecture specification
+:::
+<div class="link"></div>
+::: {.to}
+<b>WP5</b> interfaces and security<br><b>WP4</b> guardrails and explanations
+:::
+:::
+
+::: {.notes}
+Key sentence: whatever we freeze at M09 is what three other work packages build on.
+Number to remember: nine months.
+Likely question: can we change things after M09? Yes, through a change request (slide 10).
+Timing for the whole session (45 minutes, 16:45 to 17:30): about 25 minutes of slides, 15 minutes of discussion, 5 minutes of buffer. The parking lot at 17:30 takes anything that does not fit.
+WP4 and WP5 present tomorrow (09:10 and 09:50), and the cross-WP alignment is at 11:25. This slide is the first piece of that discussion.
+:::
+
+## Three tasks, one freeze at M09
+
+::: {.cols}
+::: {.col .ecp}
+<span class="tag">T3.1, KTH leads</span>
+
+### Blueprints
+
+Workflows, requirements and data needs for each use case, mapped to IEC CIM and PECO.
+
+Output: D3.1
+:::
+::: {.col .edcr}
+<span class="tag">T3.2, KTH leads</span>
+
+### KPIs and validation
+
+One scorecard and one method to evaluate all pilots at TRL 5.
+
+Output: D3.2
+:::
+::: {.col .esla}
+<span class="tag">T3.3, AIT leads</span>
+
+### Architecture
+
+Modules, interfaces, security and human oversight.
+
+Output: D3.3
+:::
+:::
+
+::: {.stat}
+37.6 person-months from all eight partners, M01 to M09.
+:::
+
+::: {.notes}
+KTH writes the requirements and the KPI framework. AIT writes the architecture, and KTH makes sure it meets the requirements.
+Effort: KTH 11.0, EIN 7.0, AIT 5.6, IMT 5.0, UNICA 3.0, ProptechOS 3.0, FLOSS 2.0, TRI 1.0 person-months.
+:::
+
+## Timeline and gates
+
+```{=html}
+<svg class="tl" viewBox="0 0 860 258" role="img" xmlns="http://www.w3.org/2000/svg">
+<text x="102.9" y="242" class="ax" text-anchor="middle">1</text>
+<line x1="70.0" y1="86" x2="70.0" y2="224" class="grid"/>
+<text x="168.7" y="242" class="ax" text-anchor="middle">2</text>
+<line x1="135.8" y1="86" x2="135.8" y2="224" class="grid"/>
+<text x="234.6" y="242" class="ax" text-anchor="middle">3</text>
+<line x1="201.7" y1="86" x2="201.7" y2="224" class="grid"/>
+<text x="300.4" y="242" class="ax" text-anchor="middle">4</text>
+<line x1="267.5" y1="86" x2="267.5" y2="224" class="grid"/>
+<text x="366.2" y="242" class="ax" text-anchor="middle">5</text>
+<line x1="333.3" y1="86" x2="333.3" y2="224" class="grid"/>
+<text x="432.1" y="242" class="ax" text-anchor="middle">6</text>
+<line x1="399.2" y1="86" x2="399.2" y2="224" class="grid"/>
+<text x="497.9" y="242" class="ax" text-anchor="middle">7</text>
+<line x1="465.0" y1="86" x2="465.0" y2="224" class="grid"/>
+<text x="563.7" y="242" class="ax" text-anchor="middle">8</text>
+<line x1="530.8" y1="86" x2="530.8" y2="224" class="grid"/>
+<text x="629.6" y="242" class="ax" text-anchor="middle">9</text>
+<line x1="596.7" y1="86" x2="596.7" y2="224" class="grid"/>
+<text x="695.4" y="242" class="ax" text-anchor="middle">10</text>
+<line x1="662.5" y1="86" x2="662.5" y2="224" class="grid"/>
+<text x="761.2" y="242" class="ax" text-anchor="middle">11</text>
+<line x1="728.3" y1="86" x2="728.3" y2="224" class="grid"/>
+<text x="827.1" y="242" class="ax" text-anchor="middle">12</text>
+<line x1="794.2" y1="86" x2="794.2" y2="224" class="grid"/>
+<line x1="860.0" y1="86" x2="860.0" y2="224" class="grid"/>
+<text x="60" y="242" class="ax" text-anchor="end">Month</text>
+<text x="60" y="114.0" class="rl" text-anchor="end">T3.1</text>
+<rect x="71.0" y="92" width="129.7" height="34" rx="3" class="seg a"/>
+<text x="135.8" y="114.0" class="st a" text-anchor="middle">Co-design</text>
+<rect x="202.7" y="92" width="261.3" height="34" rx="3" class="seg b"/>
+<text x="333.3" y="114.0" class="st b" text-anchor="middle">Data inventory, semantic scoping, blueprint drafts</text>
+<rect x="466.0" y="92" width="195.5" height="34" rx="3" class="seg c"/>
+<text x="563.8" y="114.0" class="st c" text-anchor="middle">Consolidation</text>
+<text x="60" y="156.0" class="rl" text-anchor="end">T3.2</text>
+<rect x="71.0" y="134" width="129.7" height="34" rx="3" class="seg a"/>
+<text x="135.8" y="156.0" class="st a" text-anchor="middle">KPI long list</text>
+<rect x="202.7" y="134" width="261.3" height="34" rx="3" class="seg b"/>
+<text x="333.3" y="156.0" class="st b" text-anchor="middle">Baselines, scorecard draft, MSAB review</text>
+<rect x="466.0" y="134" width="195.5" height="34" rx="3" class="seg c"/>
+<text x="563.8" y="156.0" class="st c" text-anchor="middle">Final scorecard</text>
+<text x="60" y="198.0" class="rl" text-anchor="end">T3.3</text>
+<rect x="71.0" y="176" width="129.7" height="34" rx="3" class="seg a"/>
+<text x="135.8" y="198.0" class="st a" text-anchor="middle">Principles</text>
+<rect x="202.7" y="176" width="261.3" height="34" rx="3" class="seg b"/>
+<text x="333.3" y="198.0" class="st b" text-anchor="middle">Logical architecture, security, oversight</text>
+<rect x="466.0" y="176" width="195.5" height="34" rx="3" class="seg c"/>
+<text x="563.8" y="198.0" class="st c" text-anchor="middle">Interfaces, review</text>
+<line x1="70.0" y1="24" x2="70.0" y2="224" class="gate n"/>
+<circle cx="70.0" cy="24" r="4" class="gd n"/>
+<text x="78.0" y="28" class="gt n" text-anchor="start">Kickoff</text>
+<line x1="234.6" y1="46" x2="234.6" y2="224" class="gate n"/>
+<circle cx="234.6" cy="46" r="4" class="gd n"/>
+<text x="242.6" y="50" class="gt n" text-anchor="start">WS1 co-creation</text>
+<line x1="333.3" y1="24" x2="333.3" y2="224" class="gate n"/>
+<circle cx="333.3" cy="24" r="4" class="gd n"/>
+<text x="341.3" y="28" class="gt n" text-anchor="start">Drafts shared with WP4</text>
+<line x1="399.2" y1="46" x2="399.2" y2="224" class="gate n"/>
+<circle cx="399.2" cy="46" r="4" class="gd n"/>
+<text x="407.2" y="50" class="gt n" text-anchor="start">WP4 starts</text>
+<line x1="662.5" y1="24" x2="662.5" y2="224" class="gate f"/>
+<circle cx="662.5" cy="24" r="4" class="gd f"/>
+<text x="670.5" y="28" class="gt f" text-anchor="start">Freeze: D3.1 to D3.3</text>
+</svg>
+```
+
+::: {.callout}
+Drafts go to WP4 from M05, so the freeze at M09 holds no surprises.
+:::
+
+::: {.notes}
+The schedule inside the three phases is a proposal for discussion. The dates that come from the proposal are WS1 at M3, WP4 starting at M06 and the freeze at M09.
+Likely question: when is WS1 exactly, and where? Open, see the asks slide.
+:::
+
+## T3.1: how we work
+
+::: {.steps}
+::: {.step}
+<b>Map stakeholders</b><br>For each pilot: community managers, DSO staff, building operators, regulators.
+:::
+::: {.step}
+<b>Co-design workshops</b><br>Personas and user journeys, including non-expert users.
+:::
+::: {.step}
+<b>Inventory the data</b><br>Source, owner, format, access conditions, privacy class.
+:::
+::: {.step}
+<b>Scope the semantics</b><br>Map each item to IEC CIM or PECO and list the gaps.
+:::
+::: {.step}
+<b>Consolidate</b><br>One requirements register with IDs and priorities.
+:::
+::: {.step}
+<b>Review</b><br>Pilot partners first, then the advisory board (MSAB).
+:::
+:::
+
+::: {.notes}
+Key sentence: the data inventory and the semantic gap list are what partners can start on this month.
+The proposal assumes CIM and PECO are expressive enough. Targeted expert interviews in step 4 test that assumption.
+:::
+
+## Three use cases, three blueprints
+
+::: {.lead}
+AIT introduced the use cases this afternoon. This is what each blueprint adds.
+:::
+
+::: {.cols}
+::: {.col .ecp}
+<span class="tag">ECP, Austria and Italy</span>
+
+Planning dialogue for non-experts: PV, storage, community scope, viability.
+
+The blueprint settles:
+
+- which public and community data feed it
+- how national incentives become rules
+:::
+::: {.col .edcr}
+<span class="tag">EDCR, Sweden and France</span>
+
+Operator decision support, in shadow mode.
+
+The blueprint settles:
+
+- which events it covers
+- which DSO-informed grid constraints apply
+- what the operator sees and can override
+:::
+::: {.col .esla}
+<span class="tag">ESLA, Austria and France</span>
+
+Automated lifecycle of an energy service.
+
+The blueprint settles:
+
+- the reference service to automate
+- which steps run without a human
+:::
+:::
+
+::: {.notes}
+Each pilot host writes the first draft of its own blueprint from a common template. KTH consolidates.
+Likely question: what does the French side need to provide? The proposal describes the Swedish EDCR in most detail, so France needs the most clarifying.
+:::
+
+## T3.2: from targets to baselines
+
+::: {.lead}
+The KPIs were shown in the overview. D3.2 makes each one measurable.
+:::
+
+| Objective | Target | D3.2 adds |
+|:--|:--|:--|
+| O1 Orchestration | 30 to 50% less manual effort | Baseline effort, definition of "without human intervention" |
+| O2 Federation | Under 2 s for 90% of queries | Test queries and the onboarding baseline |
+| O3 Explainability | 85% operator acceptance | Survey instrument, definition of the Trust-Score |
+| O4 Demonstration | Planning under 21 days | Baselines per pilot, shadow-mode protocol |
+
+::: {.notes}
+Key sentence: we keep the proposal's targets and make each one measurable. The full KPI list is in the backup.
+Every KPI needs a formula, a unit, a baseline, a data source, an owner and a tolerance.
+Likely question: who sets the baseline? The pilot host measures it, KTH defines how.
+:::
+
+## T3.3: the architecture
+
+::: {.blocks}
+::: {.row}
+::: {.blk .top}
+<b>ECP toolbox</b>chat and scenario dashboard
+:::
+::: {.blk .top}
+<b>EDCR toolbox</b>operator dashboard
+:::
+::: {.blk .top}
+<b>ESLA toolbox</b>notebooks and workflow queue
+:::
+:::
+::: {.row}
+::: {.blk}
+<b>Agent orchestration</b>central orchestrator, hierarchical task planning, fallback
+:::
+::: {.blk}
+<b>Federated semantic layer</b>Semantic API, SPARQL, CIM and PECO, data stays at source
+:::
+::: {.blk}
+<b>Explainability and trust</b>explanations, regulatory guardrails, human feedback
+:::
+:::
+::: {.row}
+::: {.blk .base}
+<b>Physical guardrail</b>power-flow check of every control recommendation, target under 100 ms
+:::
+::: {.blk .base}
+<b>Audit and security</b>traceability, manual override, role-based access
+:::
+:::
+:::
+
+::: {.callout}
+Still open: where connectors run, identity between agents, what may leave a site, the deployment target.
+:::
+
+::: {.notes}
+The building blocks come straight from the proposal. T3.3 turns them into interfaces and decisions, one decision record each.
+Likely question: which LLM? Open. The proposal prefers small language models and federated inference to limit footprint.
+:::
+
+## What WP4 to WP6 get, and when
+
+::: {.lead}
+WP4 and WP5 present tomorrow. Note what you need from WP3 and bring it to the alignment session at 11:25.
+:::
+
+| When | What | For |
+|:----|:----------------------|:--------|
+| M05 | Draft blueprints and the semantic gap list | WP4 |
+| M05 | Logical architecture and interface list | WP4, WP5 |
+| M07 | Draft KPI scorecard and shadow-mode protocol | WP6 |
+| M09 | D3.1 to D3.3 signed off | Everyone |
+
+::: {.notes}
+All dates are proposals for discussion. WP4 starts at M06 and WP5 at M12, so early drafts let them plan.
+This table moves into the cross-WP alignment tomorrow: who needs what from whom, and when.
+Likely question: can WP5 start earlier on the connectors? Yes, from the M05 interface list.
+:::
+
+## How we decide
+
+::: {.lead}
+Project governance comes from WP1 this afternoon. These rules belong to WP3.
+:::
+
+::: {.flow}
+::: {.node}
+<b>Draft</b>task partners write
+:::
+<div class="arrow"></div>
+::: {.node}
+<b>Internal review</b>two partners who did not write it
+:::
+<div class="arrow"></div>
+::: {.node}
+<b>MSAB review</b>D3.1 and D3.2
+:::
+<div class="arrow"></div>
+::: {.node .hot}
+<b>Sign-off</b>pilot hosts, M09
+:::
+:::
+
+- Every requirement gets an ID in one register, kept in the project workspace.
+- After M09, a change needs a request that states its effect on WP4, WP5 and WP6.
+- Disagreements go to the technical board.
+
+::: {.notes}
+All of this is a proposal. Small clarifications after the freeze do not need a request.
+Likely question: who is in the MSAB? The nominations were collected in the 16:00 session. WP3 asks only for the first meeting date.
+:::
+
+## What we need from you
+
+| What | Who | By |
+|:-----------------------|:----------------|:-----|
+| A named WP3 contact and hours for M01 to M09 | Every partner | This week |
+| Stakeholders for your pilot | Pilot hosts | M02 |
+| First data inventory: sources, owners, access conditions | Pilot hosts, ProptechOS | M03 |
+| First meeting of the advisory board | AIT, KTH | Before WS1 |
+| Date and place for WS1 | AIT, KTH | 4 weeks |
+
+::: {.notes}
+Dates are proposals and need agreeing in the room. Write the answers into the shared asks table during the discussion, phrased as action items for the 11:45 wrap-up tomorrow.
+Access conditions in the data inventory follow what the Consortium Agreement session settled.
+Templates KTH sends this week: blueprint, data inventory sheet, KPI definition sheet.
+WS1 is at M03. If M01 is November 2026, that is about January 2027. Confirm the start date with AIT.
+:::
+
+## Discussion {.dark background-color="#000061"}
+
+::: {.qlist}
+What do WP4 and WP5 need from WP3 by M05?
+
+Which data can we use, and under which agreement?
+
+Which versions of IEC CIM and PECO are the baseline?
+
+When and where is WS1?
+:::
+
+## Backup: effort by partner {.smaller}
+
+| Partner | PMs | Main contribution to WP3 |
+|:--|--:|:--|
+| KTH | 11.0 | Leads WP3, T3.1 and T3.2, KPI framework, Swedish pilot requirements |
+| EIN | 7.0 | Stakeholder requirements from the Hammarby Sjöstad pilot, Living Lab workshops |
+| AIT | 5.6 | Leads T3.3, semantic scoping, ECP and ESLA requirements for Austria |
+| IMT | 5.0 | Explainability and trust requirements, semantic web standards |
+| UNICA | 3.0 | Semantic scoping with IEC CIM and PECO, ECP requirements for Italy |
+| ProptechOS (IDUN) | 3.0 | Building data integration and platform interoperability |
+| FLOSS | 2.0 | Implementation feasibility, runtime and UI requirements |
+| TRI | 1.0 | EU AI Act compliance and audit requirements |
+
+## Backup: the proposal's KPIs {.smaller}
+
+| Objective | KPI | Verification in the proposal |
+|:--|:--|:--|
+| O1 | 30 to 50% less manual engineering effort | Manual against agentic benchmark in WP6 |
+| O1 | Over 90% task success without human intervention | Logs from stress tests |
+| O1 | 15 to 20% local peak load reduction | Functional tests of orchestration |
+| O2 | Semantic mapping under 500 ms per data point | Benchmark of the Semantic API (T5.2) |
+| O2 | Cross-site queries under 2 s for 90% of requests | Federated SPARQL tests |
+| O2 | At least 50% less data onboarding time | Cross-site reuse in the pilots |
+| O3 | 100% audit trail for high-risk decisions | AI Act self-assessment (T1.2), rule-based checks |
+| O3 | 85% operator acceptance, transparency at least 4 of 5 | Pilot surveys |
+| O3 | Over 80% of operators confirm the AI logic | Pilot surveys |
+| O4 | Assessment time from about 3 months to under 21 days | KPI logging in the pilots |
+| O4 | DSO pre-assessment under 4 hours (baseline 40 man-hours) | KPI logging in the pilots |
+| O4 | Hosting capacity up 10 to 20%, congestion hours down 25 to 40% | Independent verification, TRL assessment |
+
+## Backup: architecture questions to close {.smaller}
+
+| Topic | Questions |
+|:--|:--|
+| Layers | Which modules exist, what does each own, which interfaces are public? |
+| Agent contracts | Registration, input and output schemas, error envelope, versioning |
+| Data access | Where do connectors run? How are schema changes handled? Which SPARQL features are required? |
+| Security | Authentication between agents and external systems, access model, secrets, network zones at pilot sites |
+| Data sovereignty | What may leave a site? How is GDPR handled for building and consumption data? |
+| Human oversight | Where do recommendations wait for approval? How are overrides logged and fed back? |
+| Traceability | What the audit logger records, how long, who can read it |
+| Deployment | Cloud-native target, sizing for 10 communities and 100 concurrent agents, edge devices at pilots |
+| LLM strategy | Which models, where hosted, how recommendations are grounded in grid data |
+| Licensing | Which components are open (Apache 2.0, Zenodo) and which stay proprietary |
+
+## Backup: risks for WP3 {.smaller}
+
+| Risk | Mitigation |
+|:--|:--|
+| Semantic incompatibility between pilot sites | Use CIM and SAREF, start mapping early, expert interviews in the first phase |
+| Unstable access to DSO or community data | Data access agreements early, access status in the data inventory, synthetic data as fallback |
+| Explanations too technical for non-experts | Define "understandable" with users in the co-creation workshops |
+| Late or unclear requirements delay WP4 and WP5 | Drafts shared from M05, freeze at M09, traceability matrix |
+| KPIs too vague to measure in WP6 | Baseline, formula and data source for every KPI in D3.2 |
+| Little partner time in M01 to M09 | Short sessions, templates prepared by KTH, workshops grouped |
+
+## Backup: what the three deliverables contain {.smaller}
+
+::: {.cols}
+::: {.col}
+<h3>D3.1 Blueprints</h3>
+
+Per use case:
+
+- stakeholders, personas, journeys
+- workflow, with the human decision points
+- requirements with IDs and priority
+- data and semantic mapping
+- regulatory constraints
+- pilot environment
+- open issues
+:::
+::: {.col}
+<h3>D3.2 Framework</h3>
+
+- KPI scorecard with baselines
+- evaluation method for TRL 5
+- shadow-mode protocol
+- TRL 3, 4 and 5 criteria
+- data collection templates
+- usability and ethics protocol
+:::
+::: {.col}
+<h3>D3.3 Architecture</h3>
+
+- logical, deployment and data-flow diagrams
+- interface definitions
+- security requirements
+- human oversight design
+- traceability matrix from D3.1
+- decision log
+:::
+:::

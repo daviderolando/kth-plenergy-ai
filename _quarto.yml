@@ -1,0 +1,20 @@
+project:
+  title: "Plenergy AI"
+  output-dir: _site
+
+# Applies to every .qmd in the project
+execute:
+  engine: jupyter
+  echo: true                 # show code in the output
+  warning: false             # hide library warnings
+  freeze: auto               # re-run only files that changed (cached in _freeze/)
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    code-fold: true
+    embed-resources: true    # single self-contained HTML file
+
+
+

@@ -1,0 +1,183 @@
+---
+title: "Kickoff"
+author: "Your Name"
+date: today
+---
+
+## Agenda
+
+- Goals
+- Scope
+- Next steps
+
+## A computed slide
+
+```{python}
+#| echo: false
+print(f"2 + 2 = {2 + 2}")
+```
+
+## One result, several views {.smaller}
+
+Tabsets keep a slide compact: the audience picks the view.
+
+::: {.panel-tabset}
+
+### Command
+
+```bash
+quarto render site/slides/kickoff.qmd      # standalone .html
+quarto render site/reports --to pdf        # PDF through LaTeX
+quarto render site/reports --to typst      # PDF through Typst
+```
+
+### Plot
+
+```{python}
+#| echo: false
+#| fig-height: 3
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.linspace(0, 2 * np.pi, 200)
+fig, ax = plt.subplots(figsize=(7, 3))
+ax.plot(x, np.sin(x), label="sin")
+ax.plot(x, np.cos(x), label="cos")
+ax.legend()
+fig.tight_layout()
+plt.show()
+```
+
+### Table
+
+```{python}
+#| echo: false
+import pandas as pd
+
+pd.DataFrame({
+    "Format": ["HTML", "PDF (Typst)", "PDF (LaTeX)", "Word"],
+    "Needs": ["nothing", "nothing", "TinyTeX", "nothing"],
+    "Best for": ["reports", "quick PDFs", "papers", "editing"],
+})
+```
+
+:::
+
+## Interactive: the selection trap {.smaller}
+
+Two traits, **independent** in the whole pool. Select the top candidates by a weighted score and watch what happens.
+
+```{python}
+#| echo: false
+#| output: asis
+import json
+import numpy as np
+
+rng = np.random.default_rng(42)
+pool = np.round(rng.normal(size=(400, 2)), 3).tolist()
+# Plain JSON in the page: no server, no CDN, works from file://
+print(f"<script>window.POOL = {json.dumps(pool)};</script>")
+```
+
+:::: {.columns}
+
+::: {.column width="30%"}
+```{=html}
+<div id="sel-controls" style="font-size:0.65em; line-height:1.6">
+  <label>Talent weight: <b id="w-out">0.50</b><br>
+    <input id="w" type="range" min="0" max="1" step="0.05" value="0.5" style="width:100%"></label><br>
+  <label>Selected, top %: <b id="top-out">15</b><br>
+    <input id="top" type="range" min="5" max="100" step="5" value="15" style="width:100%"></label>
+  <p style="margin-top:1em">
+    Correlation of the two traits<br>
+    whole pool: <b id="c-all"></b><br>
+    selected only: <b id="c-sel" style="color:#c0392b"></b>
+  </p>
+</div>
+```
+:::
+
+::: {.column width="70%"}
+```{=html}
+<svg id="sel-chart" viewBox="0 0 620 380" style="width:100%; height:auto"></svg>
+<script>
+(function () {
+  const NS = "http://www.w3.org/2000/svg";
+  const W = 620, H = 380, M = 34, LIM = 3;
+  const px = x => M + (x + LIM) / (2 * LIM) * (W - 2 * M);
+  const py = y => H - M - (y + LIM) / (2 * LIM) * (H - 2 * M);
+  const svg = document.getElementById("sel-chart");
+  const el = (tag, attrs, parent) => {
+    const e = document.createElementNS(NS, tag);
+    for (const k in attrs) e.setAttribute(k, attrs[k]);
+    (parent || svg).appendChild(e);
+    return e;
+  };
+  const corr = rows => {
+    const n = rows.length;
+    if (n < 3) return NaN;
+    const mx = rows.reduce((a, r) => a + r[0], 0) / n;
+    const my = rows.reduce((a, r) => a + r[1], 0) / n;
+    let sxy = 0, sxx = 0, syy = 0;
+    for (const r of rows) {
+      sxy += (r[0] - mx) * (r[1] - my);
+      sxx += (r[0] - mx) ** 2;
+      syy += (r[1] - my) ** 2;
+    }
+    return sxy / Math.sqrt(sxx * syy);
+  };
+
+  // static frame, grid and axis labels
+  el("rect", {x: M, y: M, width: W - 2 * M, height: H - 2 * M, fill: "none", stroke: "#999"});
+  for (let t = -LIM + 1; t < LIM; t++) {
+    el("line", {x1: px(t), y1: M, x2: px(t), y2: H - M, stroke: "#e3e6ea"});
+    el("line", {x1: M, y1: py(t), x2: W - M, y2: py(t), stroke: "#e3e6ea"});
+  }
+  el("text", {x: W - M, y: H - 8, "text-anchor": "end", "font-size": 14, fill: "#555"}, svg).textContent = "Talent →";
+  el("text", {x: M + 6, y: M + 16, "font-size": 14, fill: "#555"}, svg).textContent = "↑ Looks";
+  const clip = el("clipPath", {id: "sel-clip"});
+  el("rect", {x: M, y: M, width: W - 2 * M, height: H - 2 * M}, clip);
+  const dots = window.POOL.map(() => el("circle", {cx: 0, cy: 0, r: 3}));
+  const line = el("line", {stroke: "#7b241c", "stroke-dasharray": "5 4", "stroke-width": 1.5, "clip-path": "url(#sel-clip)"});
+
+  const wIn = document.getElementById("w"), topIn = document.getElementById("top");
+  function update() {
+    const w = +wIn.value, top = +topIn.value;
+    document.getElementById("w-out").textContent = w.toFixed(2);
+    document.getElementById("top-out").textContent = top;
+    const scores = window.POOL.map(r => w * r[0] + (1 - w) * r[1]);
+    const sorted = scores.slice().sort((a, b) => a - b);
+    const cutoff = sorted[Math.min(sorted.length - 1, Math.floor(sorted.length * (1 - top / 100)))];
+    const chosen = [];
+    window.POOL.forEach((r, i) => {
+      const on = scores[i] >= cutoff;
+      if (on) chosen.push(r);
+      dots[i].setAttribute("cx", px(r[0]));
+      dots[i].setAttribute("cy", py(r[1]));
+      dots[i].setAttribute("r", on ? 4.5 : 2.8);
+      dots[i].setAttribute("fill", on ? "#c0392b" : "#c4cad3");
+    });
+    // cutoff line: w*x + (1-w)*y = cutoff
+    if (w > 0.999) {
+      line.setAttribute("x1", px(cutoff)); line.setAttribute("x2", px(cutoff));
+      line.setAttribute("y1", py(-LIM)); line.setAttribute("y2", py(LIM));
+    } else {
+      const y = x => (cutoff - w * x) / (1 - w);
+      line.setAttribute("x1", px(-LIM)); line.setAttribute("y1", py(y(-LIM)));
+      line.setAttribute("x2", px(LIM)); line.setAttribute("y2", py(y(LIM)));
+    }
+    const f = v => isNaN(v) ? "n/a" : v.toFixed(2);
+    document.getElementById("c-all").textContent = f(corr(window.POOL));
+    document.getElementById("c-sel").textContent = f(corr(chosen));
+  }
+  wIn.addEventListener("input", update);
+  topIn.addEventListener("input", update);
+  update();
+})();
+</script>
+```
+:::
+
+::::
+
+Among the selected, the traits look **negatively** related, though they are independent: the selection itself creates it (Berkson's paradox).
